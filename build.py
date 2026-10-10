@@ -192,16 +192,18 @@ def article_href(a):
     return f"article-{a['slug']}.html"
 
 
-LOGO_SVG = """<svg viewBox="0 0 50 50" width="{s}" height="{s}" aria-hidden="true">
-<circle cx="25" cy="25" r="23" fill="{bg}" opacity="0.1"/>
-<path d="M25 8 C20 8, 12 14, 12 24 C12 30, 16 35, 22 35 L22 20 C22 16, 24 12, 28 10" fill="{c1}"/>
-<path d="M25 8 C30 8, 38 14, 38 24 C38 30, 34 35, 28 35 L28 20 C28 16, 26 12, 22 10" fill="{c2}"/>
-<circle cx="25" cy="25" r="3" fill="{c1}"/></svg>"""
+PETAL = "M0,-3 C13,-9 13,-27 0,-32 C-13,-27 -13,-9 0,-3Z"
+LOGO_SVG = """<svg viewBox="-34 -34 68 68" width="{s}" height="{s}" aria-hidden="true">
+<path d="{p}" fill="{c1}"/>
+<path transform="rotate(90)" d="{p}" fill="{c2}"/>
+<path transform="rotate(180)" d="{p}" fill="{c1}"/>
+<path transform="rotate(270)" d="{p}" fill="{c2}"/>
+<circle r="5" fill="#e8a838"/></svg>"""
 
 
 def logo(light=False, size=45):
-    svg = LOGO_SVG.format(s=size, bg="#fff" if light else "#2d5016",
-                          c1="#fff" if light else "#2d5016",
+    svg = LOGO_SVG.format(s=size, p=PETAL,
+                          c1="#ffffff" if light else "#2d5016",
                           c2="#a8d86a" if light else "#4a7c23")
     tagline = "" if light else f'<span class="logo-tagline">{esc(TAGLINE)}</span>'
     return f"""<a href="index.html" class="logo" aria-label="{esc(SITE)} – accueil">
@@ -327,6 +329,7 @@ def layout(key, title, description, body):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -397,7 +400,7 @@ def layout(key, title, description, body):
 <li><i class="fas fa-clock"></i> {esc(HOURS)}</li>
 </ul></div>
 </div>
-<div class="footer-bottom"><p>&copy; {YEAR} {esc(SITE)}. Tous droits réservés.</p></div>
+<div class="footer-bottom"><p>&copy; {YEAR} {esc(SITE)} — site de démonstration.</p></div>
 </div></footer>
 
 <div class="cart-overlay" id="cartOverlay"></div>
