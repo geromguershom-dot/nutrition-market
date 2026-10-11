@@ -32,11 +32,11 @@ YEAR = 2026
 # Contenu
 # ----------------------------------------------------------------------------
 PRODUCTS = [
-    dict(id="aloe-vera-gel", name="Forever Aloe Vera Gel", price=15000, img="aloe-vera", new=True),
-    dict(id="bee-pollen", name="Forever Bee Pollen", price=12000, img="bee-pollen", new=False),
-    dict(id="arctic-sea", name="Forever Arctic Sea", price=18000, img="arctic-sea", new=False),
-    dict(id="immublend", name="Forever ImmuBlend", price=20000, img="immunoblend", new=False),
-    dict(id="protein", name="Forever Protein", price=25000, img="protein", new=True),
+    dict(id="aloe-vera-gel", name="Gel d'Aloe Vera", price=15000, img="aloe-vera", new=True),
+    dict(id="bee-pollen", name="Pollen d'abeille", price=12000, img="bee-pollen", new=False),
+    dict(id="arctic-sea", name="Oméga-3 marin", price=18000, img="arctic-sea", new=False),
+    dict(id="immublend", name="Complexe Immunité", price=20000, img="immunoblend", new=False),
+    dict(id="protein", name="Protéines végétales", price=25000, img="protein", new=True),
 ]
 
 FORMATIONS = [
